@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
+        System.out.println("иська");
         Scanner scanner = new Scanner(System.in);
         Library library = new Library(10);
 
@@ -26,11 +26,31 @@ public class Main {
             switch (choice) {
 
                 case 1:
-                    // TODO: Read input and add Book
+                    System.out.println("enter title");
+                    String title =scanner.nextLine();
+                    System.out.println("enter author");
+                    String author =scanner.nextLine();
+
+                    System.out.println("enter year");
+                    int year =scanner.nextInt();
+                    scanner.nextLine(); // consume newline
+                    Book a=new Book(title, author, year);
+                    library.addBook(a);
                     break;
 
                 case 2:
-                    // TODO: Read input and add EBook
+                    System.out.println("enter title");
+                    String title2 =scanner.nextLine();
+                    System.out.println("enter author");
+                    String author2 =scanner.nextLine();
+                    System.out.println("enter year");
+                    int year2 =scanner.nextInt();
+                    scanner.nextLine(); // consume newline
+                    System.out.println("enter file size");
+                    double size =scanner.nextDouble();
+                    scanner.nextLine(); // consume newline
+                    Book b=new EBook(title2, author2, year2, size);
+                    library.addBook(b);
                     break;
 
                 case 3:
@@ -38,15 +58,21 @@ public class Main {
                     break;
 
                 case 4:
-                    // TODO: Search book
+                    System.out.println("enter title to search");
+                    String title3 =scanner.nextLine();
+                    library.searchByTitle(title3);
                     break;
 
                 case 5:
-                    // TODO: Borrow book
+                    System.out.println("enter title to borrow");
+                    String title5 =scanner.nextLine();
+                    library.borrowBook(title5);
                     break;
 
                 case 6:
-                    // TODO: Return book
+                    System.out.println("enter title to return");
+                    String title6 =scanner.nextLine();
+                    library.returnBook(title6);
                     break;
 
                 case 7:

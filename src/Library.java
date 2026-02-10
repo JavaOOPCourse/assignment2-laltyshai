@@ -10,26 +10,40 @@ public class Library {
 
     // TODO: Add book to array
     public void addBook(Book book) {
-        // implement
+        if ( count <books.length) {
+            books[count]=book;
+            count++;
+        }
     }
 
-    // TODO: Display all books
     public void displayBooks() {
-        // implement
+        for (Book i : books)
+            if (i!=null) {
+                System.out.println(i);
+            }
     }
 
     // TODO: Search book by title
     public Book searchByTitle(String title) {
-        return null;
+            for (Book i : books) {
+                if (i.getTitle().equals(title)) return i;
+            }
+            return null;
     }
 
     // TODO: Borrow book by title
     public void borrowBook(String title) {
-        // implement
+        for (Book i : books) {
+            if (i.getTitle()==title)
+                i.setAvailable(false);
+        }
     }
 
     // TODO: Return book by title
     public void returnBook(String title) {
-        // implement
+        for (Book i : books) {
+            if (i.getTitle()==title)
+            i.setAvailable(true);
+        }
     }
 }

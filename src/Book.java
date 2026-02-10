@@ -1,6 +1,5 @@
 public class Book {
 
-    // TODO: make fields private
     private String title;
     private String author;
     private int year;
@@ -8,50 +7,71 @@ public class Book {
 
     // TODO: Implement parameterized constructor
     public Book(String title, String author, int year) {
-        // implement
+        this.title=title;
+        this.author=author;
+        this.year=year;
+        isAvailable = true;
     }
 
     // TODO: Implement copy constructor
     public Book(Book other) {
-        // implement
+        this.title=other.title;
+        this.author=other.author;
+        this.year=other.year;
+        this.isAvailable = other.isAvailable;
+
     }
 
-    // TODO: Implement getters
     public String getTitle() {
-        return null;
+        return title;
     }
-
+    public void setTitle(String title) {
+        this.title = title;
+    }
     public String getAuthor() {
-        return null;
+        return author;
     }
-
+    public void setAuthor(String author) {
+        this.author = author;
+    }
     public int getYear() {
-        return 0;
+        return year;
     }
-
+    public void setYear(int year) {
+        this.year = year;
+    }
     public boolean isAvailable() {
-        return false;
+        return isAvailable;
+    }
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     // TODO: Implement borrow logic
     public void borrowBook() {
-        // implement
+        isAvailable=false;
     }
 
     // TODO: Implement return logic
     public void returnBook() {
         // implement
+        isAvailable=true;
+
     }
 
     // TODO: Override toString()
     @Override
     public String toString() {
-        return "";
+        return "Ttile: "+title+", Author: "+author+", Year: "+year+", Available = "+isAvailable;
     }
 
-    // TODO: Override equals()
-    @Override
-    public boolean equals(Object obj) {
-        return false;
+
+    public boolean equals(Book obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        return year == obj.year &&
+                title.equals(obj.title) &&
+                author.equals(obj.author);
     }
 }
+
